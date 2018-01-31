@@ -24,9 +24,9 @@ func Scale() body.Scale {
 	}()
 
 	return body.Scale{
-		mark != "",
-		color,
-		func(buffer *bytes.Buffer) {
+		IsVisible: mark != "",
+		Color:     color,
+		RenderImpl: func(buffer *bytes.Buffer) {
 			buffer.WriteString(mark)
 		}}
 }

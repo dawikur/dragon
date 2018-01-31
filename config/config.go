@@ -126,8 +126,8 @@ var (
 		Status: coreStatus{
 			Color:  Seg[3],
 			OK:     body.Mark{},
-			Error:  body.Mark{'', body.Red},
-			Signal: body.Mark{'', body.Brown}},
+			Error:  body.Mark{Content: '', FG: body.Red},
+			Signal: body.Mark{Content: '', FG: body.Brown}},
 		Suspended: coreSuspended{
 			Color: Seg[0],
 		},
@@ -135,32 +135,32 @@ var (
 
 	Lang = lang{
 		Color:      Seg[2],
-		Golang:     body.Mark{'', body.Yellow},
-		Nodejs:     body.Mark{'', body.Orange},
-		Perl:       body.Mark{'', body.Blue},
-		Php:        body.Mark{'', body.Magenta},
-		Python:     body.Mark{'', body.Blue},
-		Ruby:       body.Mark{'', body.Red},
-		VirtualEnv: body.Mark{'', body.Blue},
+		Golang:     body.Mark{Content: '', FG: body.Yellow},
+		Nodejs:     body.Mark{Content: '', FG: body.Orange},
+		Perl:       body.Mark{Content: '', FG: body.Blue},
+		Php:        body.Mark{Content: '', FG: body.Magenta},
+		Python:     body.Mark{Content: '', FG: body.Blue},
+		Ruby:       body.Mark{Content: '', FG: body.Red},
+		VirtualEnv: body.Mark{Content: '', FG: body.Blue},
 	}
 
 	VCS = vcs{
 		Color: Seg[2],
 		Branch: vcsBranch{
-			Initial:     body.Mark{'', body.Magenta},
-			Tracked:     body.Mark{'', body.None},
-			Detached:    body.Mark{'', body.Yellow},
-			Ahead:       body.Mark{'', body.Green},
-			Behind:      body.Mark{'', body.Red},
-			AheadBehind: body.Mark{'', body.Blue},
-			Unknown:     body.Mark{'', body.Orange}},
+			Initial:     body.Mark{Content: '', FG: body.Magenta},
+			Tracked:     body.Mark{Content: '', FG: body.None},
+			Detached:    body.Mark{Content: '', FG: body.Yellow},
+			Ahead:       body.Mark{Content: '', FG: body.Green},
+			Behind:      body.Mark{Content: '', FG: body.Red},
+			AheadBehind: body.Mark{Content: '', FG: body.Blue},
+			Unknown:     body.Mark{Content: '', FG: body.Orange}},
 		Status: vcsStatus{
-			New:      body.Mark{'', body.Blue},
-			Added:    body.Mark{'', body.Green},
-			Deleted:  body.Mark{'', body.Red},
-			Modified: body.Mark{'', body.Orange},
-			Moved:    body.Mark{'', body.Cyan},
-			Copied:   body.Mark{'', body.Yellow},
-			Unmerged: body.Mark{'═', body.Magenta}},
+			New:      body.Mark{Content: '', FG: body.Blue},
+			Added:    body.Mark{Content: '', FG: body.Green},
+			Deleted:  body.Mark{Content: '', FG: body.Red},
+			Modified: body.Mark{Content: '', FG: body.Orange},
+			Moved:    body.Mark{Content: '', FG: body.Cyan},
+			Copied:   body.Mark{Content: '', FG: body.Yellow},
+			Unmerged: body.Mark{Content: '═', FG: body.Magenta}},
 	}
 )

@@ -11,9 +11,9 @@ import (
 
 func Scale() body.Scale {
 	return body.Scale{
-		true,
-		body.Color{FG: config.Core.Prompt.Color},
-		func(buffer *bytes.Buffer) {
+		IsVisible: true,
+		Color:     body.Color{FG: config.Core.Prompt.Color},
+		RenderImpl: func(buffer *bytes.Buffer) {
 			buffer.WriteString(config.Core.Prompt.Mark)
 		}}
 }

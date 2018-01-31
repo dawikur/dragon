@@ -23,9 +23,9 @@ func hostname() string {
 
 func Scale() body.Scale {
 	return body.Scale{
-		config.Core.Context.Visible,
-		config.Core.Context.Color,
-		func(buffer *bytes.Buffer) {
+		IsVisible: config.Core.Context.Visible,
+		Color:     config.Core.Context.Color,
+		RenderImpl: func(buffer *bytes.Buffer) {
 			buffer.WriteString(username())
 			buffer.WriteRune('@')
 			buffer.WriteString(hostname())

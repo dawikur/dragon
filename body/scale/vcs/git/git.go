@@ -108,9 +108,9 @@ func Scale() body.Scale {
 	}
 
 	return body.Scale{
-		checkRepo(),
-		config.VCS.Color,
-		func(buffer *bytes.Buffer) {
+		IsVisible: checkRepo(),
+		Color:     config.VCS.Color,
+		RenderImpl: func(buffer *bytes.Buffer) {
 			mark.Render(buffer)
 			buffer.WriteRune(' ')
 			buffer.WriteString(branch)

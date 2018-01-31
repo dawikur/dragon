@@ -16,10 +16,10 @@ func TestMark_Render(t *testing.T) {
 		expected    string
 	}{
 		{"Invisible color will not be rendered",
-			body.Mark{'_', body.None},
+			body.Mark{Content: '_', FG: body.None},
 			"_"},
 		{"Visible color will be printed",
-			body.Mark{'a', 1},
+			body.Mark{Content: 'a', FG: 1},
 			"%{\u001b[38;5;1m%}a"}} {
 		test.CheckRender(t, c.description, c.expected, c.mark)
 	}

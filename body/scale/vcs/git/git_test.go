@@ -118,9 +118,9 @@ func TestGit(t *testing.T) {
 		}
 
 		expected := body.Scale{
-			c.isVisible,
-			config.Seg[2],
-			func(buffer *bytes.Buffer) { buffer.WriteString(c.content) }}
+			IsVisible:  c.isVisible,
+			Color:      config.Seg[2],
+			RenderImpl: func(buffer *bytes.Buffer) { buffer.WriteString(c.content) }}
 
 		scale := git.Scale()
 		test.CheckScale(t, c.description, expected, scale)

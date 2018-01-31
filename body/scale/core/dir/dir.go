@@ -42,9 +42,9 @@ func Scale() body.Scale {
 	}()
 
 	return body.Scale{
-		currentDir != "",
-		config.Core.Dir.Color,
-		func(buffer *bytes.Buffer) {
+		IsVisible: currentDir != "",
+		Color:     config.Core.Dir.Color,
+		RenderImpl: func(buffer *bytes.Buffer) {
 			buffer.WriteString(currentDir)
 		}}
 }

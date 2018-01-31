@@ -11,6 +11,6 @@ func Scale(jobs string) body.Scale {
 	return body.ScaleStr(
 		jobs != "0",
 		config.Core.Suspended.Color,
-		body.Mark{'', config.Core.Suspended.Color.FG},
+		body.Mark{Content: '', FG: config.Core.Suspended.Color.FG},
 		jobs)
 }
