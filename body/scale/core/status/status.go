@@ -5,8 +5,8 @@ package status
 import (
 	"strconv"
 
-	"../../../../body"
-	"../../../../config"
+	"github.com/dawikur/dragon/body"
+	"github.com/dawikur/dragon/config"
 )
 
 func Scale(retval int) body.Scale {

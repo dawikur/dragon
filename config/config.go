@@ -6,7 +6,7 @@ package config
 import (
 	"os"
 
-	"../body"
+	"github.com/dawikur/dragon/body"
 )
 
 type coreContext struct {

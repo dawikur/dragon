@@ -6,10 +6,11 @@ import (
 	"bytes"
 	"testing"
 
-	"../../../../body"
-	"../../../../test"
-	"../../../../utils"
-	"../git"
+	"github.com/dawikur/dragon/body"
+	"github.com/dawikur/dragon/body/scale/vcs/git"
+	"github.com/dawikur/dragon/config"
+	"github.com/dawikur/dragon/test"
+	"github.com/dawikur/dragon/utils"
 )
 
 func TestGit(t *testing.T) {
@@ -118,7 +119,7 @@ func TestGit(t *testing.T) {
 
 		expected := body.Scale{
 			c.isVisible,
-			body.Seg2,
+			config.Seg[2],
 			func(buffer *bytes.Buffer) { buffer.WriteString(c.content) }}
 
 		scale := git.Scale()

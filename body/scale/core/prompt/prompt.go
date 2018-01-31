@@ -5,8 +5,8 @@ package prompt
 import (
 	"bytes"
 
-	"../../../../body"
-	"../../../../config"
+	"github.com/dawikur/dragon/body"
+	"github.com/dawikur/dragon/config"
 )
 
 func Scale() body.Scale {

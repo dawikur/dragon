@@ -5,8 +5,8 @@ package body_test
 import (
 	"testing"
 
-	"../body"
-	"../test"
+	"github.com/dawikur/dragon/body"
+	"github.com/dawikur/dragon/test"
 )
 
 func TestColor_Render(t *testing.T) {

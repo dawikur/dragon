@@ -7,8 +7,8 @@ import (
 	"os"
 	"os/user"
 
-	"../../../../body"
-	"../../../../config"
+	"github.com/dawikur/dragon/body"
+	"github.com/dawikur/dragon/config"
 )
 
 func username() string {

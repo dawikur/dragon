@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"fmt"
 
-	"../utils"
+	"github.com/dawikur/dragon/utils"
 )
 
 const (

@@ -3,8 +3,8 @@
 package suspended
 
 import (
-	"../../../../body"
-	"../../../../config"
+	"github.com/dawikur/dragon/body"
+	"github.com/dawikur/dragon/config"
 )
 
 func Scale(jobs string) body.Scale {

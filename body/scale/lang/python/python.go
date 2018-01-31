@@ -5,9 +5,9 @@ package python
 import (
 	"bytes"
 
-	"../../../../body"
-	"../../../../config"
-	"../../../../utils"
+	"github.com/dawikur/dragon/body"
+	"github.com/dawikur/dragon/config"
+	"github.com/dawikur/dragon/utils"
 )
 
 func Scale() body.Scale {

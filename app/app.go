@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"../utils"
+	"github.com/dawikur/dragon/utils"
 )
 
 func Run(scales ...interface {

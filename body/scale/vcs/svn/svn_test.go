@@ -6,10 +6,11 @@ import (
 	"bytes"
 	"testing"
 
-	"../../../../body"
-	"../../../../test"
-	"../../../../utils"
-	"../svn"
+	"github.com/dawikur/dragon/body"
+	"github.com/dawikur/dragon/body/scale/vcs/svn"
+	"github.com/dawikur/dragon/config"
+	"github.com/dawikur/dragon/test"
+	"github.com/dawikur/dragon/utils"
 )
 
 func TestSvn(t *testing.T) {
@@ -78,7 +79,7 @@ func TestSvn(t *testing.T) {
 
 		expected := body.Scale{
 			c.isVisible,
-			body.Seg2,
+			config.Seg[2],
 			func(buffer *bytes.Buffer) { buffer.WriteString(c.content) }}
 
 		scale := svn.Scale()

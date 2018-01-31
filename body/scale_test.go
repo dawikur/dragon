@@ -6,8 +6,8 @@ import (
 	"bytes"
 	"testing"
 
-	"../body"
-	"../test"
+	"github.com/dawikur/dragon/body"
+	"github.com/dawikur/dragon/test"
 )
 
 func TestScale_ScaleStr(t *testing.T) {
