@@ -1,12 +1,11 @@
 # :dragon: dragon 
 
 [![Language][Language-img]][Language-url]
-[![Language][Language-img]][Language-url]
 [![Release][Release-img]][Release-url]
 [![License][License-img]][License-url]
 
-[![Travis](Travis-img)](Travis-url)
-[![Codecov](Codecov-img)](Codecov-url)
+[![Travis][Travis-img]](Travis-url)
+[![Codecov][Codecov-img]](Codecov-url)
 
 ---
 
