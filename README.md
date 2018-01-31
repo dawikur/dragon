@@ -4,8 +4,8 @@
 [![Release][Release-img]][Release-url]
 [![License][License-img]][License-url]
 
-[![Travis][Travis-img]](Travis-url)
-[![Codecov][Codecov-img]](Codecov-url)
+[![Travis][Travis-img]][Travis-url]
+[![Codecov][Codecov-img]][Codecov-url]
 [![CodeClimate][CodeClimate-img]][CodeClimate-url]
 
 ---
