@@ -1,5 +1,6 @@
 
 all: example
+all: test
 
 example: example.go
 	go build
