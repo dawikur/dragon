@@ -20,6 +20,6 @@
 [Travis-img]: https://img.shields.io/travis/dawikur/dragon.svg?style=flat-square
 [Travis-url]: https://travis-ci.org/dawikur/dragon/
 [Codecov-img]: https://img.shields.io/codecov/c/github/dawikur/dotfiles.svg?style=flat-square
-[Codecov-url]: https://travis-ci.org/dawikur/dragon/
+[Codecov-url]: https://codecov.io/gh/dawikur/dragon/
 [CodeClimate-img]: https://img.shields.io/codeclimate/issues/github/dawikur/dragon.svg?style=flat-square
 [CodeClimate-url]: https://codeclimate.com/github/dawikur/dragon/
