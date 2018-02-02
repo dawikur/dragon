@@ -1,4 +1,4 @@
-![Ribbon][Ribbon-img]
+![Dragon][Dragon-img]
 
 [![Language][Language-img]][Language-url]
 [![Release][Release-img]][Release-url]
@@ -10,7 +10,7 @@
 
 ---
 
-[Ribbon-img]: doc/ribbon.png
+[Dragon-img]: doc/dragon.png
 
 [Language-img]: https://img.shields.io/badge/language-Go-d65d0e.svg?style=flat-square
 [Language-url]: https://golang.org
