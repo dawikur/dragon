@@ -1,4 +1,5 @@
-![Dragon][Dragon-img]
+
+<p align="center"><img src="doc/dragon.png" width="512" /></p>
 
 [![Language][Language-img]][Language-url]
 [![Release][Release-img]][Release-url]
