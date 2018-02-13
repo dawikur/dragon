@@ -1,11 +1,11 @@
 
 EXTS =  \
 	go		\
-	pl		\
+	js		\
 	php		\
+	pl		\
 	py		\
-	rb		\
-	js
+	rb
 
 PREFIX = test_file
 

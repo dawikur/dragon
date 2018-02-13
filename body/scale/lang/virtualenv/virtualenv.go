@@ -7,13 +7,14 @@ import (
 	"strings"
 
 	"github.com/dawikur/dragon/body"
+	"github.com/dawikur/dragon/body/scale/lang"
 	"github.com/dawikur/dragon/config"
 )
 
 func Scale() body.Scale {
 	env := os.Getenv("VIRTUAL_ENV")
 
-	return body.ScaleFunc(
+	return lang.Scale(
 		env != "",
 		config.Lang.Color,
 		config.Lang.VirtualEnv,

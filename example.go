@@ -13,7 +13,7 @@ import (
 	"github.com/dawikur/dragon/body/scale/core/suspended"
 
 	"github.com/dawikur/dragon/body/scale/lang/golang"
-	"github.com/dawikur/dragon/body/scale/lang/nodejs"
+	"github.com/dawikur/dragon/body/scale/lang/js"
 	"github.com/dawikur/dragon/body/scale/lang/perl"
 	"github.com/dawikur/dragon/body/scale/lang/php"
 	"github.com/dawikur/dragon/body/scale/lang/python"
@@ -43,7 +43,7 @@ func main() {
 
 		// lang
 		golang.Scale(),
-		nodejs.Scale(),
+		js.Scale(),
 		perl.Scale(),
 		php.Scale(),
 		python.Scale(),

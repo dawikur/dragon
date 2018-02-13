@@ -16,17 +16,13 @@ type Scale struct {
 }
 
 func ScaleStr(isVisible bool, color Color, mark Mark, content string) Scale {
-	return ScaleFunc(isVisible, color, mark, func() string { return content })
-}
-
-func ScaleFunc(isVisible bool, color Color, mark Mark, content func() string) Scale {
 	return Scale{
 		isVisible,
 		color,
 		func(buffer *bytes.Buffer) {
 			mark.Render(buffer)
 			buffer.WriteRune(' ')
-			buffer.WriteString(content())
+			buffer.WriteString(content)
 		}}
 }
 

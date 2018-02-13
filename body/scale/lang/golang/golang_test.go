@@ -6,5 +6,5 @@ import (
 	"testing"
 )
 
-func Test_TODO(t *testing.T) {
+func TestLang(t *testing.T) {
 }

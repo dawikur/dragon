@@ -1,6 +1,6 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package ruby
+package js
 
 import (
 	"github.com/dawikur/dragon/body"
@@ -9,12 +9,24 @@ import (
 	"github.com/dawikur/dragon/utils"
 )
 
+func getJSVersion() string {
+	ver := utils.Version("nodejs", "--version")
+	if len(ver) > 0 {
+		return ver
+	}
+
+	ver = utils.Version("npm", "--version")
+	if len(ver) > 0 {
+		return ver
+	}
+
+	return ver
+}
+
 func Scale() body.Scale {
 	return lang.Scale(
-		utils.IsFile("[a-zA-Z]*.rb"),
+		utils.IsFile("[a-zA-Z]*.js"),
 		config.Lang.Color,
-		config.Lang.Ruby,
-		func() string {
-			return utils.Version("ruby", "--version")
-		})
+		config.Lang.Nodejs,
+		getJSVersion)
 }
