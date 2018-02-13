@@ -92,6 +92,8 @@ type vcs struct {
 }
 
 var (
+	Default = body.Default
+
 	BG = []int{
 		20,
 		19,
@@ -101,7 +103,7 @@ var (
 	FG = 20
 
 	Seg = []body.Color{
-		{FG: body.Default, BG: BG[0]},
+		{FG: Default, BG: BG[0]},
 		{FG: FG, BG: BG[1]},
 		{FG: FG, BG: BG[2]},
 		{FG: FG, BG: BG[3]}}
@@ -118,8 +120,8 @@ var (
 			JoinSeparator: "│",
 			SkipPrefixes: []coreDirSkipPrefix{
 				{Color: body.Color{FG: FG, BG: body.Bright}, From: os.Getenv("HOME"), To: ""},
-				{Color: body.Color{FG: body.Default, BG: body.Blue}, From: "/tmp", To: ""},
-				{Color: body.Color{FG: body.Default, BG: body.Orange}, From: "/", To: ""}},
+				{Color: body.Color{FG: Default, BG: body.Blue}, From: "/tmp", To: ""},
+				{Color: body.Color{FG: Default, BG: body.Orange}, From: "/", To: ""}},
 		},
 		Prompt: corePrompt{
 			Color: body.Green,
@@ -132,7 +134,7 @@ var (
 			Signal: body.Mark{Content: '', FG: body.Brown}},
 		Suspended: coreSuspended{
 			Color: Seg[0],
-			Mark:  body.Mark{Content: '', FG: body.Default},
+			Mark:  body.Mark{Content: '', FG: Default},
 		},
 	}
 
