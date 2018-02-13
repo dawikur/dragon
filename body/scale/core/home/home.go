@@ -11,17 +11,19 @@ import (
 	"github.com/dawikur/dragon/config"
 )
 
-func Scale() body.Scale {
+func getMarkAndColor() (string, body.Color) {
 	dir, _ := os.Getwd()
 
-	mark, color := func() (string, body.Color) {
-		for _, c := range config.Core.Dir.SkipPrefixes {
-			if strings.HasPrefix(dir, c.From) {
-				return c.To, c.Color
-			}
+	for _, c := range config.Core.Dir.SkipPrefixes {
+		if strings.HasPrefix(dir, c.From) {
+			return c.To, c.Color
 		}
-		return "", body.Color{}
-	}()
+	}
+	return "", body.Color{}
+}
+
+func Scale() body.Scale {
+	mark, color := getMarkAndColor()
 
 	return body.Scale{
 		IsVisible: mark != "",
