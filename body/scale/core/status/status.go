@@ -9,23 +9,27 @@ import (
 	"github.com/dawikur/dragon/config"
 )
 
-func Scale(retval int) body.Scale {
+func getMark(retVal int) body.Mark {
+	if retVal == 0 {
+		return config.Core.Status.OK
+	}
+	if retVal >= 128 {
+		return config.Core.Status.Signal
+	}
+	return config.Core.Status.Error
+}
+
+func getContent(retVal int) string {
+	if retVal >= 128 {
+		return strconv.Itoa(retVal - 128)
+	}
+	return strconv.Itoa(retVal)
+}
+
+func Scale(retVal int) body.Scale {
 	return body.ScaleStr(
-		retval != 0,
+		retVal != 0,
 		config.Core.Status.Color,
-		func() body.Mark {
-			if retval == 0 {
-				return config.Core.Status.OK
-			}
-			if retval >= 128 {
-				return config.Core.Status.Signal
-			}
-			return config.Core.Status.Error
-		}(),
-		func() string {
-			if retval >= 128 {
-				return strconv.Itoa(retval - 128)
-			}
-			return strconv.Itoa(retval)
-		}())
+		getMark(retVal),
+		getContent(retVal))
 }
