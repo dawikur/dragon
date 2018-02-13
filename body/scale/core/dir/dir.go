@@ -12,13 +12,17 @@ import (
 )
 
 func filterPrefixes(dir string, osSeparator string) string {
-	skipPrefixes := []string{os.Getenv("HOME"), "/tmp", osSeparator}
+	skipPrefixes := []string{os.Getenv("HOME"), "/tmp"}
 
 	for _, prefix := range skipPrefixes {
 		if strings.HasPrefix(dir, prefix) {
 			dir = dir[len(prefix):]
 			break
 		}
+	}
+
+	if strings.HasPrefix(dir, osSeparator) {
+		dir = dir[len(osSeparator):]
 	}
 
 	return dir
