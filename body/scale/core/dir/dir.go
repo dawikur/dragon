@@ -11,35 +11,42 @@ import (
 	"github.com/dawikur/dragon/config"
 )
 
-var (
-	skipPrefixes = []string{os.Getenv("HOME"), "/tmp"}
-)
+func filterPrefixes(dir string, osSeparator string) string {
+	skipPrefixes := []string{os.Getenv("HOME"), "/tmp", osSeparator}
+
+	for _, prefix := range skipPrefixes {
+		if strings.HasPrefix(dir, prefix) {
+			dir = dir[len(prefix):]
+			break
+		}
+	}
+
+	return dir
+}
+
+func limitDeepth(dir string, osSeparator string) string {
+	dirs := strings.Split(dir, osSeparator)
+
+	if len(dirs) > config.Core.Dir.Deepth {
+		dirs = dirs[len(dirs)-config.Core.Dir.Deepth:]
+		dirs[0] = config.Core.Dir.MoreIndicator
+	}
+
+	return strings.Join(dirs, config.Core.Dir.JoinSeparator)
+}
+
+func getCurrentDir() string {
+	dir, _ := os.Getwd()
+	osSeparator := string(os.PathSeparator)
+
+	dir = filterPrefixes(dir, osSeparator)
+	dir = limitDeepth(dir, osSeparator)
+
+	return dir
+}
 
 func Scale() body.Scale {
-	currentDir := func() string {
-		dir, _ := os.Getwd()
-		osSeparator := string(os.PathSeparator)
-
-		for _, prefix := range skipPrefixes {
-			if strings.HasPrefix(dir, prefix) {
-				dir = dir[len(prefix):]
-				break
-			}
-		}
-
-		if strings.HasPrefix(dir, osSeparator) {
-			dir = dir[1:]
-		}
-
-		dirs := strings.Split(dir, osSeparator)
-		if len(dirs) > config.Core.Dir.Deepth {
-			dirs = dirs[len(dirs)-config.Core.Dir.Deepth:]
-			dirs[0] = config.Core.Dir.MoreIndicator
-		}
-		dir = strings.Join(dirs, config.Core.Dir.JoinSeparator)
-
-		return dir
-	}()
+	currentDir := getCurrentDir()
 
 	return body.Scale{
 		IsVisible: currentDir != "",
