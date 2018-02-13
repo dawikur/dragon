@@ -42,6 +42,7 @@ type coreStatus struct {
 
 type coreSuspended struct {
 	Color body.Color
+	Mark  body.Mark
 }
 
 type core struct {
@@ -130,6 +131,7 @@ var (
 			Signal: body.Mark{Content: '', FG: body.Brown}},
 		Suspended: coreSuspended{
 			Color: Seg[0],
+			Mark:  body.Mark{Content: '', FG: body.Default},
 		},
 	}
 
