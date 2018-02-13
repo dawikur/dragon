@@ -1,6 +1,6 @@
 // Copyright 2018, Dawid Kurek, <dawikur@gmail.com>
 
-package golang_test
+package elm_test
 
 import (
 	"testing"

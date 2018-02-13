@@ -55,6 +55,7 @@ type core struct {
 
 type lang struct {
 	Color      body.Color
+	Elm        body.Mark
 	Golang     body.Mark
 	Nodejs     body.Mark
 	Perl       body.Mark
@@ -137,6 +138,7 @@ var (
 
 	Lang = lang{
 		Color:      Seg[2],
+		Elm:        body.Mark{Content: '', FG: body.Green},
 		Golang:     body.Mark{Content: '', FG: body.Yellow},
 		Nodejs:     body.Mark{Content: '', FG: body.Orange},
 		Perl:       body.Mark{Content: '', FG: body.Blue},

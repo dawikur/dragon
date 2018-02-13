@@ -1,5 +1,6 @@
 
 EXTS =  \
+	elm		\
 	go		\
 	js		\
 	php		\
