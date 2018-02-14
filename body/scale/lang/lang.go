@@ -10,9 +10,9 @@ import (
 
 func Scale(isVisible bool, color body.Color, mark body.Mark, content func() string) body.Scale {
 	return body.Scale{
-		isVisible,
-		color,
-		func(buffer *bytes.Buffer) {
+		IsVisible: isVisible,
+		Color:     color,
+		RenderImpl: func(buffer *bytes.Buffer) {
 			mark.Render(buffer)
 			buffer.WriteRune(' ')
 			buffer.WriteString(content())
