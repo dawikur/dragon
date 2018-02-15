@@ -17,26 +17,31 @@ func TestCVS(t *testing.T) {
 	for _, c := range []struct {
 		description string
 		info        string
-		parseStatus func(string) string
-		parseRepo   func(string) body.Mark
-		parseBranch func(string) string
+		mark        body.Mark
 		isVisible   bool
 		content     string
 	}{
 		{"If invisible don't render",
 			"",
-			func(string) string { return "" },
-			func(string) body.Mark { return body.Mark{} },
-			func(string) string { return "" },
+			body.Mark{},
 			false,
-			""}} {
+			""},
+		{"If visible render simple text",
+			"Repo",
+			body.Mark{Content: ' '},
+			true,
+			" Repo"}} {
 
 		expected := body.Scale{
 			IsVisible:  c.isVisible,
 			Color:      config.Seg[2],
 			RenderImpl: func(buffer *bytes.Buffer) { buffer.WriteString(c.content) }}
 
-		scale := vcs.Scale(c.info, c.parseStatus, c.parseRepo, c.parseBranch)
+		scale := vcs.Scale(
+			c.info,
+			func(string) string { return "" },
+			func(string) body.Mark { return c.mark },
+			func(string) string { return c.info })
 		test.CheckScale(t, c.description, expected, scale)
 	}
 }
