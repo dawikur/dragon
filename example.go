@@ -12,6 +12,7 @@ import (
 	"github.com/dawikur/dragon/body/scale/core/status"
 	"github.com/dawikur/dragon/body/scale/core/suspended"
 
+	"github.com/dawikur/dragon/body/scale/lang/elm"
 	"github.com/dawikur/dragon/body/scale/lang/golang"
 	"github.com/dawikur/dragon/body/scale/lang/js"
 	"github.com/dawikur/dragon/body/scale/lang/perl"
@@ -42,6 +43,7 @@ func main() {
 		suspended.Scale("3"),
 
 		// lang
+		elm.Scale(),
 		golang.Scale(),
 		js.Scale(),
 		perl.Scale(),
