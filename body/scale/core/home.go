@@ -1,6 +1,6 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package home
+package core
 
 import (
 	"bytes"
@@ -11,7 +11,7 @@ import (
 	"github.com/dawikur/dragon/config"
 )
 
-func getMarkAndColor() (string, body.Color) {
+func getHomeMarkAndColor() (string, body.Color) {
 	dir, _ := os.Getwd()
 
 	for _, c := range config.Core.Dir.SkipPrefixes {
@@ -22,8 +22,8 @@ func getMarkAndColor() (string, body.Color) {
 	return "", body.Color{}
 }
 
-func Scale() body.Scale {
-	mark, color := getMarkAndColor()
+func Home() body.Scale {
+	mark, color := getHomeMarkAndColor()
 
 	return body.Scale{
 		IsVisible: mark != "",

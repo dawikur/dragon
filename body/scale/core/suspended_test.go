@@ -1,10 +1,10 @@
 // Copyright 2018, Dawid Kurek, <dawikur@gmail.com>
 
-package status_test
+package core_test
 
 import (
 	"testing"
 )
 
-func Test_TODO(t *testing.T) {
+func TestSuspended_TODO(t *testing.T) {
 }

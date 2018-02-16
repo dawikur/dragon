@@ -1,6 +1,6 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package context
+package core
 
 import (
 	"bytes"
@@ -21,7 +21,7 @@ func hostname() string {
 	return host
 }
 
-func Scale() body.Scale {
+func Context() body.Scale {
 	return body.Scale{
 		IsVisible: config.Core.Context.Visible,
 		Color:     config.Core.Context.Color,

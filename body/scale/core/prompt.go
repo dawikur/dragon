@@ -1,6 +1,6 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package prompt
+package core
 
 import (
 	"bytes"
@@ -9,7 +9,7 @@ import (
 	"github.com/dawikur/dragon/config"
 )
 
-func Scale() body.Scale {
+func Prompt() body.Scale {
 	return body.Scale{
 		IsVisible: true,
 		Color:     body.Color{FG: config.Core.Prompt.Color},

@@ -1,6 +1,6 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package dir
+package core
 
 import (
 	"bytes"
@@ -11,7 +11,7 @@ import (
 	"github.com/dawikur/dragon/config"
 )
 
-func filterPrefixes(dir string, osSeparator string) string {
+func filterDirPrefixes(dir string, osSeparator string) string {
 	skipPrefixes := []string{os.Getenv("HOME"), "/tmp"}
 
 	for _, prefix := range skipPrefixes {
@@ -28,7 +28,7 @@ func filterPrefixes(dir string, osSeparator string) string {
 	return dir
 }
 
-func limitDeepth(dir string, osSeparator string) string {
+func limitDirDeepth(dir string, osSeparator string) string {
 	dirs := strings.Split(dir, osSeparator)
 
 	if len(dirs) > config.Core.Dir.Deepth {
@@ -43,13 +43,13 @@ func getCurrentDir() string {
 	dir, _ := os.Getwd()
 	osSeparator := string(os.PathSeparator)
 
-	dir = filterPrefixes(dir, osSeparator)
-	dir = limitDeepth(dir, osSeparator)
+	dir = filterDirPrefixes(dir, osSeparator)
+	dir = limitDirDeepth(dir, osSeparator)
 
 	return dir
 }
 
-func Scale() body.Scale {
+func Dir() body.Scale {
 	currentDir := getCurrentDir()
 
 	return body.Scale{

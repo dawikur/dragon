@@ -5,13 +5,7 @@ package main
 import (
 	"github.com/dawikur/dragon/app"
 
-	"github.com/dawikur/dragon/body/scale/core/context"
-	"github.com/dawikur/dragon/body/scale/core/dir"
-	"github.com/dawikur/dragon/body/scale/core/home"
-	"github.com/dawikur/dragon/body/scale/core/prompt"
-	"github.com/dawikur/dragon/body/scale/core/status"
-	"github.com/dawikur/dragon/body/scale/core/suspended"
-
+	"github.com/dawikur/dragon/body/scale/core"
 	"github.com/dawikur/dragon/body/scale/lang"
 	"github.com/dawikur/dragon/body/scale/vcs"
 
@@ -25,15 +19,13 @@ func main() {
 	defer utils.Term.Line.Down()
 
 	app.Run(
-		// core
-		context.Scale(),
-		dir.Scale(),
-		home.Scale(),
-		prompt.Scale(),
-		status.Scale(255),
-		suspended.Scale("3"),
+		core.Context(),
+		core.Dir(),
+		core.Home(),
+		core.Prompt(),
+		core.Status(255),
+		core.Suspended("3"),
 
-		// lang
 		lang.Elm(),
 		lang.GoLang(),
 		lang.Js(),
@@ -43,7 +35,6 @@ func main() {
 		lang.Ruby(),
 		lang.VirtualEnv(),
 
-		// vcs
 		vcs.Git(),
 		vcs.Svn())
 }

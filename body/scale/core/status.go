@@ -1,6 +1,6 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package status
+package core
 
 import (
 	"strconv"
@@ -9,7 +9,7 @@ import (
 	"github.com/dawikur/dragon/config"
 )
 
-func getMark(retVal int) body.Mark {
+func getStatusMark(retVal int) body.Mark {
 	if retVal == 0 {
 		return config.Core.Status.OK
 	}
@@ -19,17 +19,17 @@ func getMark(retVal int) body.Mark {
 	return config.Core.Status.Error
 }
 
-func getContent(retVal int) string {
+func getStatusContent(retVal int) string {
 	if retVal >= 128 {
 		return strconv.Itoa(retVal - 128)
 	}
 	return strconv.Itoa(retVal)
 }
 
-func Scale(retVal int) body.Scale {
+func Status(retVal int) body.Scale {
 	return body.ScaleStr(
 		retVal != 0,
 		config.Core.Status.Color,
-		getMark(retVal),
-		getContent(retVal))
+		getStatusMark(retVal),
+		getStatusContent(retVal))
 }
