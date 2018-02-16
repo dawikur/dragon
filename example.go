@@ -12,14 +12,7 @@ import (
 	"github.com/dawikur/dragon/body/scale/core/status"
 	"github.com/dawikur/dragon/body/scale/core/suspended"
 
-	"github.com/dawikur/dragon/body/scale/lang/elm"
-	"github.com/dawikur/dragon/body/scale/lang/golang"
-	"github.com/dawikur/dragon/body/scale/lang/js"
-	"github.com/dawikur/dragon/body/scale/lang/perl"
-	"github.com/dawikur/dragon/body/scale/lang/php"
-	"github.com/dawikur/dragon/body/scale/lang/python"
-	"github.com/dawikur/dragon/body/scale/lang/ruby"
-	"github.com/dawikur/dragon/body/scale/lang/virtualenv"
+	"github.com/dawikur/dragon/body/scale/lang"
 
 	"github.com/dawikur/dragon/body/scale/vcs/git"
 	"github.com/dawikur/dragon/body/scale/vcs/svn"
@@ -43,14 +36,14 @@ func main() {
 		suspended.Scale("3"),
 
 		// lang
-		elm.Scale(),
-		golang.Scale(),
-		js.Scale(),
-		perl.Scale(),
-		php.Scale(),
-		python.Scale(),
-		ruby.Scale(),
-		virtualenv.Scale(),
+		lang.Elm(),
+		lang.GoLang(),
+		lang.Js(),
+		lang.Perl(),
+		lang.Php(),
+		lang.Python(),
+		lang.Ruby(),
+		lang.VirtualEnv(),
 
 		// vcs
 		git.Scale(),

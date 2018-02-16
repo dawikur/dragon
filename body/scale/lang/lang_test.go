@@ -32,7 +32,7 @@ func TestLang_ScaleFunc(t *testing.T) {
 			'_',
 			funcNonEmpty,
 			"_ abcd"}} {
-		scale := lang.Scale(false, body.Color{}, body.Mark{Content: c.mark, FG: body.None}, c.content)
-		test.CheckRenderImpl(t, c.description, c.expected, scale.RenderImpl)
+		expected := lang.Scale(false, body.Color{}, body.Mark{Content: c.mark, FG: body.None}, c.content)
+		test.CheckRenderImpl(t, c.description, c.expected, expected.RenderImpl)
 	}
 }

@@ -1,10 +1,9 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package js
+package lang
 
 import (
 	"github.com/dawikur/dragon/body"
-	"github.com/dawikur/dragon/body/scale/lang"
 	"github.com/dawikur/dragon/config"
 	"github.com/dawikur/dragon/utils"
 )
@@ -23,8 +22,8 @@ func getJSVersion() string {
 	return ver
 }
 
-func Scale() body.Scale {
-	return lang.Scale(
+func Js() body.Scale {
+	return Scale(
 		utils.IsFile("[a-zA-Z]*.js"),
 		config.Lang.Color,
 		config.Lang.Nodejs,

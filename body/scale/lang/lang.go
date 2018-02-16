@@ -8,7 +8,11 @@ import (
 	"github.com/dawikur/dragon/body"
 )
 
-func Scale(isVisible bool, color body.Color, mark body.Mark, content func() string) body.Scale {
+func Scale(
+	isVisible bool,
+	color body.Color,
+	mark body.Mark,
+	content func() string) body.Scale {
 	return body.Scale{
 		IsVisible: isVisible,
 		Color:     color,

@@ -1,10 +1,10 @@
 // Copyright 2018, Dawid Kurek, <dawikur@gmail.com>
 
-package ruby_test
+package lang_test
 
 import (
 	"testing"
 )
 
-func Test_TODO(t *testing.T) {
+func TestPython_TODO(t *testing.T) {
 }

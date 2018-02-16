@@ -1,20 +1,19 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package perl
+package lang
 
 import (
 	"github.com/dawikur/dragon/body"
-	"github.com/dawikur/dragon/body/scale/lang"
 	"github.com/dawikur/dragon/config"
 	"github.com/dawikur/dragon/utils"
 )
 
-func Scale() body.Scale {
-	return lang.Scale(
-		utils.IsFile("[a-zA-Z]*.pl"),
+func Ruby() body.Scale {
+	return Scale(
+		utils.IsFile("[a-zA-Z]*.rb"),
 		config.Lang.Color,
-		config.Lang.Perl,
+		config.Lang.Ruby,
 		func() string {
-			return utils.Version("perl", "--version")
+			return utils.Version("ruby", "--version")
 		})
 }
