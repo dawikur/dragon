@@ -1,18 +1,17 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package svn
+package vcs
 
 import (
 	"bytes"
 	"strings"
 
 	"github.com/dawikur/dragon/body"
-	"github.com/dawikur/dragon/body/scale/vcs"
 	"github.com/dawikur/dragon/config"
 	"github.com/dawikur/dragon/utils"
 )
 
-func parseStatus(info string) string {
+func parseSvnStatus(info string) string {
 	info = "\n" + utils.Cmd("svn", "status", "--ignore-externals")
 
 	buffer := bytes.NewBufferString(" ")
@@ -38,11 +37,11 @@ func parseStatus(info string) string {
 	return ""
 }
 
-func parseRepo(info string) body.Mark {
+func parseSvnRepo(info string) body.Mark {
 	return config.VCS.Branch.Tracked
 }
 
-func parseBranch(info string) string {
+func parseSvnBranch(info string) string {
 	parts := strings.Split(info, "/")
 	if len(parts) < 2 {
 		return info
@@ -55,8 +54,8 @@ func parseBranch(info string) string {
 	return parts[2]
 }
 
-func Scale() body.Scale {
-	return vcs.Scale(
+func Svn() body.Scale {
+	return Scale(
 		utils.Cmd("svn", "info", "--show-item", "relative-url", "--no-newline"),
-		parseStatus, parseRepo, parseBranch)
+		parseSvnStatus, parseSvnRepo, parseSvnBranch)
 }

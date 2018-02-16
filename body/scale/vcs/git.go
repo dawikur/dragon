@@ -1,18 +1,17 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package git
+package vcs
 
 import (
 	"bytes"
 	"strings"
 
 	"github.com/dawikur/dragon/body"
-	"github.com/dawikur/dragon/body/scale/vcs"
 	"github.com/dawikur/dragon/config"
 	"github.com/dawikur/dragon/utils"
 )
 
-func parseStatus(info string) string {
+func parseGitStatus(info string) string {
 	buffer := bytes.NewBufferString(" ")
 	for _, check := range []struct {
 		mark  body.Mark
@@ -39,7 +38,7 @@ func parseStatus(info string) string {
 	return ""
 }
 
-func parseRepo(info string) body.Mark {
+func parseGitRepo(info string) body.Mark {
 	value := 0
 	for _, check := range []struct {
 		id  int
@@ -72,7 +71,7 @@ func parseRepo(info string) body.Mark {
 	return config.VCS.Branch.Unknown
 }
 
-func parseBranch(info string) string {
+func parseGitBranch(info string) string {
 	info = info[3:]
 
 	if strings.HasPrefix(info, "Initial commit on ") {
@@ -90,8 +89,8 @@ func parseBranch(info string) string {
 	return info
 }
 
-func Scale() body.Scale {
-	return vcs.Scale(
+func Git() body.Scale {
+	return Scale(
 		utils.Cmd("git", "status", "--porcelain", "--branch"),
-		parseStatus, parseRepo, parseBranch)
+		parseGitStatus, parseGitRepo, parseGitBranch)
 }

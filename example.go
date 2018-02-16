@@ -13,9 +13,7 @@ import (
 	"github.com/dawikur/dragon/body/scale/core/suspended"
 
 	"github.com/dawikur/dragon/body/scale/lang"
-
-	"github.com/dawikur/dragon/body/scale/vcs/git"
-	"github.com/dawikur/dragon/body/scale/vcs/svn"
+	"github.com/dawikur/dragon/body/scale/vcs"
 
 	"github.com/dawikur/dragon/utils"
 )
@@ -46,6 +44,6 @@ func main() {
 		lang.VirtualEnv(),
 
 		// vcs
-		git.Scale(),
-		svn.Scale())
+		vcs.Git(),
+		vcs.Svn())
 }

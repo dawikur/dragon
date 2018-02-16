@@ -1,13 +1,13 @@
 // Copyright 2017, Dawid Kurek, <dawikur@gmail.com>
 
-package git_test
+package vcs_test
 
 import (
 	"bytes"
 	"testing"
 
 	"github.com/dawikur/dragon/body"
-	"github.com/dawikur/dragon/body/scale/vcs/git"
+	"github.com/dawikur/dragon/body/scale/vcs"
 	"github.com/dawikur/dragon/config"
 	"github.com/dawikur/dragon/test"
 	"github.com/dawikur/dragon/utils"
@@ -122,7 +122,7 @@ func TestGit(t *testing.T) {
 			Color:      config.Seg[2],
 			RenderImpl: func(buffer *bytes.Buffer) { buffer.WriteString(c.content) }}
 
-		scale := git.Scale()
+		scale := vcs.Git()
 		test.CheckScale(t, c.description, expected, scale)
 	}
 
