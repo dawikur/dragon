@@ -7,6 +7,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -35,18 +36,42 @@ var (
 	}
 
 	// Version executes command (name arg) and tries to match its output
-	// with a version regexp
+	// with a default version regex "[0-9]+.[0-9]+.[0-9]+"
 	Version = func(name string, arg string) string {
 		ver := Cmd(name, arg)
 		return reVersion.FindString(ver)
 	}
 
-	// EnvOrValue returns environment variable or value of env is empty
-	EnvOrValue = func(name string, value string) string {
+	// VersionRe executed command (name arg) and tries to match its output
+	// with a passed version regex
+	VersionRe = func(name string, arg string, regex string) string {
+		ver := Cmd(name, arg)
+		reVersion := regexp.MustCompile(regex)
+		return reVersion.FindString(ver)
+	}
+
+	// EnvOrValueStr returns environment variable or value of env is empty
+	EnvOrValueStr = func(name string, value string) string {
 		env := os.Getenv(name)
 		if env != "" {
 			return env
 		}
 		return value
+	}
+
+	// EnvOrValueStr returns environment variable or value of env is empty
+	EnvOrValueInt = func(name string, value int) int {
+		env := os.Getenv(name)
+		if env != "" {
+			i, err := strconv.Atoi(env)
+			if err == nil {
+				return i
+			}
+		}
+		return value
+	}
+
+	UpdateFromEnvInt = func(value *int, name string) {
+		*value = EnvOrValueInt(name, *value)
 	}
 )

@@ -100,13 +100,17 @@ var (
 		18,
 		0}
 
-	FG = 20
+	FG = []int{
+		Default,
+		20,
+		20,
+		20}
 
 	Seg = []body.Color{
-		{FG: Default, BG: BG[0]},
-		{FG: FG, BG: BG[1]},
-		{FG: FG, BG: BG[2]},
-		{FG: FG, BG: BG[3]}}
+		{FG: FG[0], BG: BG[0]},
+		{FG: FG[1], BG: BG[1]},
+		{FG: FG[2], BG: BG[2]},
+		{FG: FG[3], BG: BG[3]}}
 
 	Core = core{
 		Context: coreContext{
@@ -119,7 +123,7 @@ var (
 			MoreIndicator: "…",
 			JoinSeparator: "│",
 			SkipPrefixes: []coreDirSkipPrefix{
-				{Color: body.Color{FG: FG, BG: body.Bright}, From: os.Getenv("HOME"), To: ""},
+				{Color: body.Color{FG: Default, BG: body.Bright}, From: os.Getenv("HOME"), To: ""},
 				{Color: body.Color{FG: Default, BG: body.Blue}, From: "/tmp", To: ""},
 				{Color: body.Color{FG: Default, BG: body.Orange}, From: "/", To: ""}},
 		},
