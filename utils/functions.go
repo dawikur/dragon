@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	reVersion = regexp.MustCompile("[0-9]+.[0-9]+.[0-9]+")
+	reVersion = regexp.MustCompile("[0-9]+(.[0-9]+)*")
 
 	// Cmd is a wrapper for exec.Command which does not return error
 	// but rather returns empty string if something went wrong
@@ -50,7 +50,7 @@ var (
 		return reVersion.FindString(ver)
 	}
 
-	// EnvOrValueStr returns environment variable or value of env is empty
+	// EnvOrValueStr returns environment variable or value if env is empty
 	EnvOrValueStr = func(name string, value string) string {
 		env := os.Getenv(name)
 		if env != "" {
@@ -59,7 +59,7 @@ var (
 		return value
 	}
 
-	// EnvOrValueStr returns environment variable or value of env is empty
+	// EnvOrValueInt returns environment variable or value if env is empty
 	EnvOrValueInt = func(name string, value int) int {
 		env := os.Getenv(name)
 		if env != "" {
@@ -71,6 +71,7 @@ var (
 		return value
 	}
 
+	// UpdateFromEnvInt updates passed int value from env if exists
 	UpdateFromEnvInt = func(value *int, name string) {
 		*value = EnvOrValueInt(name, *value)
 	}
