@@ -87,6 +87,8 @@ type vcsStatus struct {
 
 type vcs struct {
 	Color  body.Color
+	Split string
+	Join string
 	Branch vcsBranch
 	Status vcsStatus
 }
@@ -156,6 +158,8 @@ var (
 
 	VCS = vcs{
 		Color: Seg[2],
+		Split: "/",
+		Join: "│",
 		Branch: vcsBranch{
 			Initial:     body.Mark{Content: '', FG: body.Magenta},
 			Tracked:     body.Mark{Content: '', FG: body.None},

@@ -86,7 +86,8 @@ func parseGitBranch(info string) string {
 
 	info = strings.Split(info, "\n")[0]
 	info = strings.Split(info, "...")[0]
-	return info
+
+	return strings.Replace(info, config.VCS.Split, config.VCS.Join, -1)
 }
 
 func Git() body.Scale {
