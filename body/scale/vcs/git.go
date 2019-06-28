@@ -44,11 +44,13 @@ func parseGitRepo(info string) body.Mark {
 		id  int
 		str string
 	}{
-		{1, "Initial commit on"},
-		{2, "..."},
-		{4, "(no branch)"},
-		{8, "ahead"},
-		{16, "behind"}} {
+		{1, "No commits yet on"},
+		{2, "Initial commit on"},
+		{4, "..."},
+		{8, "(no branch)"},
+		{16, "ahead"},
+		{32, "behind"},
+		{64, "fatal:"}} {
 		if strings.Contains(info, check.str) {
 			value += check.id
 		}
@@ -56,23 +58,33 @@ func parseGitRepo(info string) body.Mark {
 
 	switch value {
 	case 1:
-		return config.VCS.Branch.Initial
+		return config.VCS.Branch.Empty
 	case 2:
-		return config.VCS.Branch.Tracked
+		return config.VCS.Branch.Initial
 	case 4:
+		return config.VCS.Branch.Tracked
+	case 8:
 		return config.VCS.Branch.Detached
-	case 10:
+	case 20:
 		return config.VCS.Branch.Ahead
-	case 18:
+	case 36:
 		return config.VCS.Branch.Behind
-	case 26:
+	case 52:
 		return config.VCS.Branch.AheadBehind
+	case 64:
+		return config.VCS.Branch.Fatal
 	}
 	return config.VCS.Branch.Unknown
 }
 
 func parseGitBranch(info string) string {
 	info = info[3:]
+
+	if strings.HasPrefix(info, "No commits yet on ") {
+		parts := strings.Split(info, "\n")
+		parts = strings.Split(parts[0], " ")
+		return parts[4]
+	}
 
 	if strings.HasPrefix(info, "Initial commit on ") {
 		parts := strings.Split(info, "\n")

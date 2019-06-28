@@ -66,12 +66,14 @@ type lang struct {
 }
 
 type vcsBranch struct {
+	Empty       body.Mark
 	Initial     body.Mark
 	Tracked     body.Mark
 	Detached    body.Mark
 	Ahead       body.Mark
 	Behind      body.Mark
 	AheadBehind body.Mark
+	Fatal       body.Mark
 	Unknown     body.Mark
 }
 
@@ -161,12 +163,14 @@ var (
 		Split: "/",
 		Join: "│",
 		Branch: vcsBranch{
+			Empty:       body.Mark{Content: '○', FG: body.White},
 			Initial:     body.Mark{Content: '', FG: body.Magenta},
 			Tracked:     body.Mark{Content: '', FG: body.None},
 			Detached:    body.Mark{Content: '', FG: body.Yellow},
 			Ahead:       body.Mark{Content: '', FG: body.Green},
 			Behind:      body.Mark{Content: '', FG: body.Red},
 			AheadBehind: body.Mark{Content: '', FG: body.Blue},
+			Fatal:       body.Mark{Content: '', FG: body.Red},
 			Unknown:     body.Mark{Content: '', FG: body.Orange}},
 		Status: vcsStatus{
 			New:      body.Mark{Content: '', FG: body.Blue},
