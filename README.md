@@ -19,5 +19,5 @@
     <img src="https://img.shields.io/codecov/c/github/dawikur/dragon.svg?style=flat-square" />
   </a>
 </p>
-
+<p align="center"><img src="doc/example.png" /></p>
 ---
