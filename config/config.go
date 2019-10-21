@@ -129,6 +129,7 @@ var (
 			SkipPrefixes: []coreDirSkipPrefix{
 				{Color: body.Color{FG: Default, BG: body.Bright}, From: os.Getenv("HOME"), To: ""},
 				{Color: body.Color{FG: Default, BG: body.Blue}, From: "/tmp", To: ""},
+				{Color: body.Color{FG: Default, BG: body.Magenta}, From: "/mnt", To: ""},
 				{Color: body.Color{FG: Default, BG: body.Orange}, From: "/", To: ""}},
 		},
 		Prompt: corePrompt{
