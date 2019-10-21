@@ -18,9 +18,6 @@
   <a href="https://codecov.io/gh/dawikur/dragon/">
     <img src="https://img.shields.io/codecov/c/github/dawikur/dragon.svg?style=flat-square" />
   </a>
-  <a href="https://codeclimate.com/github/dawikur/dragon/">
-    <img src="https://img.shields.io/codeclimate/issues/github/dawikur/dragon.svg?style=flat-square" />
-  </a>
 </p>
 
 ---
