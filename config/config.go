@@ -89,8 +89,8 @@ type vcsStatus struct {
 
 type vcs struct {
 	Color  body.Color
-	Split string
-	Join string
+	Split  string
+	Join   string
 	Branch vcsBranch
 	Status vcsStatus
 }
@@ -130,6 +130,7 @@ var (
 				{Color: body.Color{FG: Default, BG: body.Bright}, From: os.Getenv("HOME"), To: ""},
 				{Color: body.Color{FG: Default, BG: body.Blue}, From: "/tmp", To: ""},
 				{Color: body.Color{FG: Default, BG: body.Magenta}, From: "/mnt", To: ""},
+				{Color: body.Color{FG: Default, BG: body.Yellow}, From: "/media", To: ""},
 				{Color: body.Color{FG: Default, BG: body.Orange}, From: "/", To: ""}},
 		},
 		Prompt: corePrompt{
@@ -162,7 +163,7 @@ var (
 	VCS = vcs{
 		Color: Seg[2],
 		Split: "/",
-		Join: "│",
+		Join:  "│",
 		Branch: vcsBranch{
 			Empty:       body.Mark{Content: '○', FG: body.White},
 			Initial:     body.Mark{Content: '', FG: body.Magenta},
