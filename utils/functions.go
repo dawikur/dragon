@@ -3,11 +3,9 @@
 package utils
 
 import (
-	"os"
 	"os/exec"
 	"path/filepath"
 	"regexp"
-	"strconv"
 	"strings"
 )
 
@@ -48,31 +46,5 @@ var (
 		ver := Cmd(name, arg)
 		reVersion := regexp.MustCompile(regex)
 		return reVersion.FindString(ver)
-	}
-
-	// EnvOrValueStr returns environment variable or value if env is empty
-	EnvOrValueStr = func(name string, value string) string {
-		env := os.Getenv(name)
-		if env != "" {
-			return env
-		}
-		return value
-	}
-
-	// EnvOrValueInt returns environment variable or value if env is empty
-	EnvOrValueInt = func(name string, value int) int {
-		env := os.Getenv(name)
-		if env != "" {
-			i, err := strconv.Atoi(env)
-			if err == nil {
-				return i
-			}
-		}
-		return value
-	}
-
-	// UpdateFromEnvInt updates passed int value from env if exists
-	UpdateFromEnvInt = func(value *int, name string) {
-		*value = EnvOrValueInt(name, *value)
 	}
 )
