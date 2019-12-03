@@ -106,7 +106,7 @@ var (
 
 	FG = []int{
 		Default,
-		20,
+		Default,
 		20,
 		20}
 
