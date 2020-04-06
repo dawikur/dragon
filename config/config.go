@@ -122,7 +122,7 @@ var (
 			Visible: os.Getenv("SSH_CONNECTION") != "",
 		},
 		Dir: coreDir{
-			Color:         Seg[1],
+			Color:         Seg[2],
 			Deepth:        4,
 			MoreIndicator: "…",
 			JoinSeparator: "│",
@@ -161,7 +161,7 @@ var (
 	}
 
 	VCS = vcs{
-		Color: Seg[2],
+		Color: Seg[3],
 		Split: "/",
 		Join:  "│",
 		Branch: vcsBranch{
