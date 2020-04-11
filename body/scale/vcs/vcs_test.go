@@ -34,7 +34,7 @@ func TestCVS(t *testing.T) {
 
 		expected := body.Scale{
 			IsVisible:  c.isVisible,
-			Color:      config.Seg[2],
+			Color:      config.Seg[3],
 			RenderImpl: func(buffer *bytes.Buffer) { buffer.WriteString(c.content) }}
 
 		scale := vcs.Scale(

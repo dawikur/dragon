@@ -10,18 +10,18 @@ import (
 )
 
 const (
-	None    = -1
-	Default = 0
-	Red     = 1
-	Green   = 2
-	Yellow  = 3
-	Blue    = 4
-	Violet  = 5
-	Cyan    = 6
-	White   = 7
-	Bright  = 8
-	Orange  = 16
-	Magenta = 17
+	None      = -1
+	Default   = 0
+	Black     = 0
+	Red       = 1
+	Green     = 2
+	Yellow    = 3
+	Blue      = 4
+	Violet    = 5
+	Cyan      = 6
+	LightGray = 7
+	DarkGray  = 8
+	White     = 15
 )
 
 // Color gathers both FG and BG color codes

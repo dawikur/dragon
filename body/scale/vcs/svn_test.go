@@ -37,7 +37,7 @@ func TestSvn(t *testing.T) {
 		{"Trunk with untracked file",
 			[]string{"^/trunk", "? file"},
 			true,
-			" trunk %{\u001b[38;5;4m%}"},
+			" trunk %{\u001b[38;5;7m%}"},
 		{"Trunk with new file",
 			[]string{"^/trunk", "A file"},
 			true,
@@ -53,15 +53,15 @@ func TestSvn(t *testing.T) {
 		{"Trunk with modified file",
 			[]string{"^/trunk", "M file"},
 			true,
-			" trunk %{\u001b[38;5;17m%}"},
+			" trunk %{\u001b[38;5;3m%}"},
 		{"Trunk with moved file",
 			[]string{"^/trunk", "R file"},
 			true,
-			" trunk %{\u001b[38;5;6m%}"},
+			" trunk %{\u001b[38;5;4m%}"},
 		{"Trunk with copied file",
 			[]string{"^/trunk", "- file"},
 			true,
-			" trunk %{\u001b[38;5;3m%}"},
+			" trunk %{\u001b[38;5;6m%}"},
 		{"Trunk with unmerged file",
 			[]string{"^/trunk", "C file"},
 			true,
@@ -79,7 +79,7 @@ func TestSvn(t *testing.T) {
 
 		expected := body.Scale{
 			IsVisible:  c.isVisible,
-			Color:      config.Seg[2],
+			Color:      config.Seg[3],
 			RenderImpl: func(buffer *bytes.Buffer) { buffer.WriteString(c.content) }}
 
 		scale := vcs.Svn()

@@ -99,16 +99,16 @@ var (
 	Default = body.Default
 
 	BG = []int{
-		20,
-		19,
-		18,
-		0}
+		body.White,
+		body.LightGray,
+		body.DarkGray,
+		body.Black}
 
 	FG = []int{
 		Default,
 		Default,
-		20,
-		20}
+		body.LightGray,
+		body.LightGray}
 
 	Seg = []body.Color{
 		{FG: FG[0], BG: BG[0]},
@@ -127,11 +127,11 @@ var (
 			MoreIndicator: "…",
 			JoinSeparator: "│",
 			SkipPrefixes: []coreDirSkipPrefix{
-				{Color: body.Color{FG: Default, BG: body.Bright}, From: os.Getenv("HOME"), To: ""},
+				{Color: body.Color{FG: Default, BG: body.LightGray}, From: os.Getenv("HOME"), To: ""},
 				{Color: body.Color{FG: Default, BG: body.Blue}, From: "/tmp", To: ""},
-				{Color: body.Color{FG: Default, BG: body.Magenta}, From: "/mnt", To: ""},
+				{Color: body.Color{FG: Default, BG: body.Violet}, From: "/mnt", To: ""},
 				{Color: body.Color{FG: Default, BG: body.Yellow}, From: "/media", To: ""},
-				{Color: body.Color{FG: Default, BG: body.Orange}, From: "/", To: ""}},
+				{Color: body.Color{FG: Default, BG: body.Red}, From: "/", To: ""}},
 		},
 		Prompt: corePrompt{
 			Color: body.Green,
@@ -141,9 +141,9 @@ var (
 			Color:  Seg[3],
 			OK:     body.Mark{},
 			Error:  body.Mark{Content: '', FG: body.Red},
-			Signal: body.Mark{Content: '', FG: body.Orange}},
+			Signal: body.Mark{Content: '', FG: body.Yellow}},
 		Suspended: coreSuspended{
-			Color: Seg[0],
+			Color: Seg[1],
 			Mark:  body.Mark{Content: '', FG: Default},
 		},
 	}
@@ -151,13 +151,13 @@ var (
 	Lang = lang{
 		Color:      Seg[2],
 		Elm:        body.Mark{Content: '', FG: body.Green},
-		Golang:     body.Mark{Content: '', FG: body.Yellow},
-		Nodejs:     body.Mark{Content: '', FG: body.Orange},
+		Golang:     body.Mark{Content: '', FG: body.Blue},
+		Nodejs:     body.Mark{Content: '', FG: body.Yellow},
 		Perl:       body.Mark{Content: '', FG: body.Blue},
-		Php:        body.Mark{Content: '', FG: body.Magenta},
+		Php:        body.Mark{Content: '', FG: body.Violet},
 		Python:     body.Mark{Content: '', FG: body.Blue},
 		Ruby:       body.Mark{Content: '', FG: body.Red},
-		VirtualEnv: body.Mark{Content: '', FG: body.Blue},
+		VirtualEnv: body.Mark{Content: '', FG: body.Cyan},
 	}
 
 	VCS = vcs{
@@ -166,21 +166,21 @@ var (
 		Join:  "│",
 		Branch: vcsBranch{
 			Empty:       body.Mark{Content: '○', FG: body.White},
-			Initial:     body.Mark{Content: '', FG: body.Magenta},
+			Initial:     body.Mark{Content: '', FG: body.LightGray},
 			Tracked:     body.Mark{Content: '', FG: body.None},
 			Detached:    body.Mark{Content: '', FG: body.Yellow},
 			Ahead:       body.Mark{Content: '', FG: body.Green},
-			Behind:      body.Mark{Content: '', FG: body.Red},
-			AheadBehind: body.Mark{Content: '', FG: body.Blue},
+			Behind:      body.Mark{Content: '', FG: body.Blue},
+			AheadBehind: body.Mark{Content: '', FG: body.Violet},
 			Fatal:       body.Mark{Content: '', FG: body.Red},
-			Unknown:     body.Mark{Content: '', FG: body.Orange}},
+			Unknown:     body.Mark{Content: '', FG: body.Cyan}},
 		Status: vcsStatus{
-			New:      body.Mark{Content: '', FG: body.Blue},
+			New:      body.Mark{Content: '', FG: body.LightGray},
 			Added:    body.Mark{Content: '', FG: body.Green},
 			Deleted:  body.Mark{Content: '', FG: body.Red},
-			Modified: body.Mark{Content: '', FG: body.Orange},
-			Moved:    body.Mark{Content: '', FG: body.Cyan},
-			Copied:   body.Mark{Content: '', FG: body.Yellow},
-			Unmerged: body.Mark{Content: '═', FG: body.Magenta}},
+			Modified: body.Mark{Content: '', FG: body.Yellow},
+			Moved:    body.Mark{Content: '', FG: body.Blue},
+			Copied:   body.Mark{Content: '', FG: body.Cyan},
+			Unmerged: body.Mark{Content: '═', FG: body.Violet}},
 	}
 )
