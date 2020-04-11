@@ -141,7 +141,7 @@ var (
 			Color:  Seg[3],
 			OK:     body.Mark{},
 			Error:  body.Mark{Content: '', FG: body.Red},
-			Signal: body.Mark{Content: '', FG: body.Brown}},
+			Signal: body.Mark{Content: '', FG: body.Orange}},
 		Suspended: coreSuspended{
 			Color: Seg[0],
 			Mark:  body.Mark{Content: '', FG: Default},

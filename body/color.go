@@ -16,12 +16,12 @@ const (
 	Green   = 2
 	Yellow  = 3
 	Blue    = 4
-	Magenta = 5
+	Violet  = 5
 	Cyan    = 6
 	White   = 7
 	Bright  = 8
-	Brown   = 16
-	Orange  = 17
+	Orange  = 16
+	Magenta = 17
 )
 
 // Color gathers both FG and BG color codes
