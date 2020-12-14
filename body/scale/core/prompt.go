@@ -12,7 +12,7 @@ import (
 func Prompt() body.Scale {
 	return body.Scale{
 		IsVisible: true,
-		Color:     body.Color{FG: config.Core.Prompt.Color},
+		Color:     body.Color{FG: config.Core.Prompt.Color, BG: body.None},
 		RenderImpl: func(buffer *bytes.Buffer) {
 			buffer.WriteString(config.Core.Prompt.Mark)
 		}}

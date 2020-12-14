@@ -13,6 +13,7 @@ type line struct {
 }
 
 type term struct {
+	Code  string
 	Color string
 	Reset func()
 	Line  line
@@ -26,6 +27,7 @@ var (
 	// Term contains those fancy special strings which are used to control
 	// terminal.
 	Term = term{
+		"%%{\u001b[%dm%%}",
 		"%%{\u001b[%d;5;%dm%%}",
 		print("%{\u001b[0m%}"),
 		line{

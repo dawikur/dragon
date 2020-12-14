@@ -13,7 +13,7 @@ type Mark struct {
 
 func (mark Mark) Render(buffer *bytes.Buffer) {
 	if mark.Content != ' ' {
-		color := Color{FG: mark.FG, BG: -1}
+		color := Color{FG: mark.FG, BG: None}
 		color.Render(buffer)
 		buffer.WriteRune(mark.Content)
 	}

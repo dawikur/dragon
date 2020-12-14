@@ -114,7 +114,7 @@ var (
 		{FG: FG[0], BG: BG[0]},
 		{FG: FG[1], BG: BG[1]},
 		{FG: FG[2], BG: BG[2]},
-		{FG: FG[3], BG: BG[3]}}
+		{FG: FG[3], BG: body.None}}
 
 	Core = core{
 		Context: coreContext{
@@ -125,7 +125,7 @@ var (
 			Color:         Seg[2],
 			Deepth:        4,
 			MoreIndicator: "…",
-			JoinSeparator: "│",
+			JoinSeparator: "/",
 			SkipPrefixes: []coreDirSkipPrefix{
 				{Color: body.Color{FG: Default, BG: body.LightGray}, From: os.Getenv("HOME"), To: ""},
 				{Color: body.Color{FG: Default, BG: body.Blue}, From: "/tmp", To: ""},

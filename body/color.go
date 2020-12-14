@@ -38,7 +38,9 @@ func (color Color) Render(buffer *bytes.Buffer) {
 }
 
 func render(buffer *bytes.Buffer, code int, color int) {
-	if color != -1 {
+	if color != None {
 		fmt.Fprintf(buffer, utils.Term.Color, code, color)
+	} else {
+		fmt.Fprintf(buffer, utils.Term.Code, code+1)
 	}
 }
