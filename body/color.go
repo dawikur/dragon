@@ -11,7 +11,6 @@ import (
 
 const (
 	None      = -1
-	Default   = 0
 	Black     = 0
 	Red       = 1
 	Green     = 2

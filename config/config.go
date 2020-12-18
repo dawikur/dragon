@@ -96,25 +96,23 @@ type vcs struct {
 }
 
 var (
-	Default = body.Default
-
 	BG = []int{
-		body.White,
-		body.LightGray,
-		body.DarkGray,
-		body.Black}
+		body.None,
+		body.None,
+		body.None,
+		body.None}
 
 	FG = []int{
-		Default,
-		Default,
+		body.White,
+		body.None,
 		body.LightGray,
-		body.LightGray}
+		body.DarkGray}
 
 	Seg = []body.Color{
 		{FG: FG[0], BG: BG[0]},
 		{FG: FG[1], BG: BG[1]},
 		{FG: FG[2], BG: BG[2]},
-		{FG: FG[3], BG: body.None}}
+		{FG: FG[3], BG: BG[3]}}
 
 	Core = core{
 		Context: coreContext{
@@ -122,16 +120,16 @@ var (
 			Visible: os.Getenv("SSH_CONNECTION") != "",
 		},
 		Dir: coreDir{
-			Color:         Seg[2],
+			Color:         Seg[1],
 			Deepth:        4,
 			MoreIndicator: "…",
 			JoinSeparator: "/",
 			SkipPrefixes: []coreDirSkipPrefix{
-				{Color: body.Color{FG: Default, BG: body.LightGray}, From: os.Getenv("HOME"), To: ""},
-				{Color: body.Color{FG: Default, BG: body.Blue}, From: "/tmp", To: ""},
-				{Color: body.Color{FG: Default, BG: body.Violet}, From: "/mnt", To: ""},
-				{Color: body.Color{FG: Default, BG: body.Yellow}, From: "/media", To: ""},
-				{Color: body.Color{FG: Default, BG: body.Red}, From: "/", To: ""}},
+				{Color: body.Color{FG: body.Black, BG: body.LightGray}, From: os.Getenv("HOME"), To: ""},
+				{Color: body.Color{FG: body.Black, BG: body.Blue}, From: "/tmp", To: ""},
+				{Color: body.Color{FG: body.Black, BG: body.Violet}, From: "/mnt", To: ""},
+				{Color: body.Color{FG: body.Black, BG: body.Yellow}, From: "/media", To: ""},
+				{Color: body.Color{FG: body.Black, BG: body.Red}, From: "/", To: ""}},
 		},
 		Prompt: corePrompt{
 			Color: body.Green,
@@ -144,7 +142,7 @@ var (
 			Signal: body.Mark{Content: '', FG: body.Yellow}},
 		Suspended: coreSuspended{
 			Color: Seg[1],
-			Mark:  body.Mark{Content: '', FG: Default},
+			Mark:  body.Mark{Content: '', FG: body.None},
 		},
 	}
 
@@ -161,13 +159,13 @@ var (
 	}
 
 	VCS = vcs{
-		Color: Seg[3],
+		Color: Seg[2],
 		Split: "/",
 		Join:  "│",
 		Branch: vcsBranch{
 			Empty:       body.Mark{Content: '○', FG: body.White},
-			Initial:     body.Mark{Content: '', FG: body.LightGray},
-			Tracked:     body.Mark{Content: '', FG: body.None},
+			Initial:     body.Mark{Content: '', FG: body.None},
+			Tracked:     body.Mark{Content: '', FG: body.LightGray},
 			Detached:    body.Mark{Content: '', FG: body.Yellow},
 			Ahead:       body.Mark{Content: '', FG: body.Green},
 			Behind:      body.Mark{Content: '', FG: body.Blue},
