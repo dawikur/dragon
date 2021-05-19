@@ -20,11 +20,17 @@ type coreDirSkipPrefix struct {
 	To    string
 }
 
+type coreDirStatus struct {
+	OK    body.Mark
+	Error body.Mark
+}
+
 type coreDir struct {
 	Color         body.Color
 	Deepth        int
 	MoreIndicator string
 	JoinSeparator string
+	Status        coreDirStatus
 	SkipPrefixes  []coreDirSkipPrefix
 }
 
@@ -124,6 +130,10 @@ var (
 			Deepth:        4,
 			MoreIndicator: "…",
 			JoinSeparator: "/",
+			Status: coreDirStatus{
+				OK:    body.Mark{},
+				Error: body.Mark{Content: '', FG: body.LightGray},
+			},
 			SkipPrefixes: []coreDirSkipPrefix{
 				{Color: body.Color{FG: body.Black, BG: body.LightGray}, From: os.Getenv("HOME"), To: ""},
 				{Color: body.Color{FG: body.Black, BG: body.Blue}, From: "/tmp", To: ""},
@@ -161,7 +171,7 @@ var (
 	VCS = vcs{
 		Color: Seg[2],
 		Split: "/",
-		Join:  "│",
+		Join:  "/",
 		Branch: vcsBranch{
 			Empty:       body.Mark{Content: '○', FG: body.White},
 			Initial:     body.Mark{Content: '', FG: body.None},

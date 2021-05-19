@@ -37,23 +37,30 @@ func limitDirDeepth(dir string, osSeparator string) string {
 	return strings.Join(dirs, config.Core.Dir.JoinSeparator)
 }
 
-func getCurrentDir() string {
-	dir, _ := os.Getwd()
+func getCurrentDir() (string, body.Mark) {
+	status := config.Core.Dir.Status.OK
+
+	dir, err := os.Getwd()
+	if err != nil {
+		status = config.Core.Dir.Status.Error
+		dir = os.Getenv("PWD")
+	}
 	osSeparator := string(os.PathSeparator)
 
 	dir = filterDirPrefixes(dir, osSeparator)
 	dir = limitDirDeepth(dir, osSeparator)
 
-	return dir
+	return dir, status
 }
 
 func Dir() body.Scale {
-	currentDir := getCurrentDir()
+	currentDir, status := getCurrentDir()
 
 	return body.Scale{
 		IsVisible: currentDir != "",
 		Color:     config.Core.Dir.Color,
 		RenderImpl: func(buffer *bytes.Buffer) {
 			buffer.WriteString(currentDir)
+			status.Render(buffer)
 		}}
 }

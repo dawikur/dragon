@@ -12,7 +12,10 @@ import (
 )
 
 func getHomeMarkAndColor() (string, body.Color) {
-	dir, _ := os.Getwd()
+	dir, err := os.Getwd()
+	if err != nil {
+		dir = os.Getenv("PWD")
+	}
 
 	for _, c := range config.Core.Dir.SkipPrefixes {
 		if strings.HasPrefix(dir, c.From) {
