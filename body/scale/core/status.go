@@ -27,9 +27,15 @@ func getStatusContent(retVal int) string {
 }
 
 func Status(retVal int) body.Scale {
-	return body.ScaleStr(
+	mark := getStatusMark(retVal),
+	content := getStatusContent(retVal))
+
+	return body.Scale{
 		retVal != 0,
 		config.Core.Status.Color,
-		getStatusMark(retVal),
-		getStatusContent(retVal))
+		func(buffer *bytes.Buffer) {
+			mark.Render(buffer)
+			buffer.WriteRune(' ')
+			buffer.WriteString(content)
+		}}
 }

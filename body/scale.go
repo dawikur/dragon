@@ -15,17 +15,6 @@ type Scale struct {
 	RenderImpl RenderFunc
 }
 
-func ScaleStr(isVisible bool, color Color, mark Mark, content string) Scale {
-	return Scale{
-		isVisible,
-		color,
-		func(buffer *bytes.Buffer) {
-			mark.Render(buffer)
-			buffer.WriteRune(' ')
-			buffer.WriteString(content)
-		}}
-}
-
 func doRender(scale Scale, out chan<- string) {
 	buffer := &bytes.Buffer{}
 

@@ -8,9 +8,15 @@ import (
 )
 
 func Suspended(jobs string) body.Scale {
-	return body.ScaleStr(
+	mark := config.Core.Suspended.Mark
+	content := jobs
+
+	return Scale{
 		jobs != "0",
 		config.Core.Suspended.Color,
-		config.Core.Suspended.Mark,
-		jobs)
+		func(buffer *bytes.Buffer) {
+			mark.Render(buffer)
+			buffer.WriteRune(' ')
+			buffer.WriteString(content)
+		}}
 }
