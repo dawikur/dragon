@@ -11,7 +11,7 @@ func Suspended(jobs string) body.Scale {
 	mark := config.Core.Suspended.Mark
 	content := jobs
 
-	return Scale{
+	return body.Scale{
 		jobs != "0",
 		config.Core.Suspended.Color,
 		func(buffer *bytes.Buffer) {
