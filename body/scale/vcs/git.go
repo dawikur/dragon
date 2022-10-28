@@ -104,6 +104,6 @@ func parseGitBranch(info string) string {
 
 func Git() body.Scale {
 	return Scale(
-		utils.Cmd("git", "status", "--porcelain", "--branch"),
+		utils.Cmd("git", "--no-optional-locks", "status", "--porcelain", "--branch"),
 		parseGitStatus, parseGitRepo, parseGitBranch)
 }
