@@ -27,8 +27,8 @@ func getStatusContent(retVal int) string {
 }
 
 func Status(retVal int) body.Scale {
-	mark := getStatusMark(retVal),
-	content := getStatusContent(retVal))
+	mark := getStatusMark(retVal)
+	content := getStatusContent(retVal)
 
 	return body.Scale{
 		retVal != 0,
