@@ -3,6 +3,8 @@
 package core
 
 import (
+	"bytes"
+
 	"github.com/dawikur/dragon/body"
 	"github.com/dawikur/dragon/config"
 )
